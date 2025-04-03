@@ -1,0 +1,23 @@
+services:
+  firebase:
+    build:
+      context: .
+      dockerfile: ./containers/firebase/Dockerfile
+    container_name: firebase-emulator
+    volumes:
+      - ./containers/firebase:/app
+    working_dir: /app
+    ports:
+      - "4000:4000"  # Emulator UI
+      - "8080:8080"  # Firestore
+      - "9099:9099"  # Auth
+      - "9199:9199"  # Storage
+      - "8085:8085"  # Pub/Sub
+    environment:
+      - CODESPACES=true
+      - FIREBASE_PROJECT_ID=my-firebase-project
+      - FIREBASE_TOKEN=4/0AQSTgQHG2RTspkJ4mjOSAG-NHxzEM6jJk6zbddz0ADcYycvCwXwZkT83ZHy0VIQoG3qWpw
+      - FIRESTORE_EMULATOR_HOST=0.0.0.0:8080
+      - FIREBASE_AUTH_EMULATOR_HOST=0.0.0.0:9099
+      - FIREBASE_STORAGE_EMULATOR_HOST=0.0.0.0:9199
+      - PUBSUB_EMULATOR_HOST=0.0.0.0:8085
