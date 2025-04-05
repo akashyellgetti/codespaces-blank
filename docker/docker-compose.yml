@@ -1,12 +1,26 @@
 services:
+  web:
+    image: nginx:alpine
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - './volumes:/volumes'
+      - './containers/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+    depends_on:
+      - node
+      - firebase
+    networks:
+      - app-network
+
   firebase:
     build:
       context: .
       dockerfile: ./containers/firebase/Dockerfile
     container_name: firebase-emulator
+    working_dir: /app
     volumes:
       - ./containers/firebase:/app
-    working_dir: /app
     ports:
       - "4000:4000"  # Emulator UI
       - "8080:8080"  # Firestore
@@ -16,8 +30,30 @@ services:
     environment:
       - CODESPACES=true
       - FIREBASE_PROJECT_ID=my-firebase-project
-      - FIREBASE_TOKEN=4/0Ab_5qllZ0qlgTX-Dy_9YTJRhq4H2hZ75Nt3v1BeHkwMdcoFOQI-1ziivP4j3juz2tipVIA
+      - FIREBASE_TOKEN=YOUR_FIREBASE_TOKEN
       - FIRESTORE_EMULATOR_HOST=0.0.0.0:8080
       - FIREBASE_AUTH_EMULATOR_HOST=0.0.0.0:9099
       - FIREBASE_STORAGE_EMULATOR_HOST=0.0.0.0:9199
       - PUBSUB_EMULATOR_HOST=0.0.0.0:8085
+    networks:
+      - app-network
+
+  node:
+    build:
+      context: .
+      dockerfile: ./containers/node/Dockerfile
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=testGlobal
+    volumes:
+      - './volumes/app:/home/node/app'
+      - './volumes:/home/node'
+    ports:
+      - '3000:3000'
+    command: sh -c 'npm install && npm start'
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
