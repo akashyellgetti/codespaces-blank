@@ -1,0 +1,38 @@
+i  emulators: Starting emulators: auth, firestore, pubsub, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, pubsub, storage"}}
+[2025-04-05T06:45:01.018Z] assigned listening specs for emulators {"user":{"ui":[{"address":"0.0.0.0","family":"IPv4","port":4000}],"auth":[{"address":"0.0.0.0","family":"IPv4","port":9099}],"firestore":[{"address":"0.0.0.0","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"0.0.0.0","family":"IPv4","port":9150}],"pubsub":[{"address":"0.0.0.0","family":"IPv4","port":8085}],"storage":[{"address":"0.0.0.0","family":"IPv4","port":9199}],"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+i  pubsub: downloading pubsub-emulator-0.8.14.zip... {"metadata":{"emulator":{"name":"pubsub"},"message":"downloading pubsub-emulator-0.8.14.zip..."}}
+[2025-04-05T06:45:15.659Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/pubsub-emulator-0.8.14.zip 
+[2025-04-05T06:45:16.066Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/pubsub-emulator-0.8.14.zip 200
+[2025-04-05T06:45:16.066Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/pubsub-emulator-0.8.14.zip [stream]
+[2025-04-05T06:45:22.334Z] [unzip] Entry: pubsub-emulator/ (compressed_size=2 bytes, uncompressed_size=0 bytes)
+[2025-04-05T06:45:22.334Z] [unzip] Processing entry: pubsub-emulator/
+[2025-04-05T06:45:22.334Z] [unzip] mkdir: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/
+[2025-04-05T06:45:22.335Z] [unzip] Entry: pubsub-emulator/lib/ (compressed_size=2 bytes, uncompressed_size=0 bytes)
+[2025-04-05T06:45:22.336Z] [unzip] Processing entry: pubsub-emulator/lib/
+[2025-04-05T06:45:22.336Z] [unzip] mkdir: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/lib/
+[2025-04-05T06:45:22.337Z] [unzip] Entry: pubsub-emulator/lib/cloud-pubsub-emulator-0.8.14-all.jar (compressed_size=66782880 bytes, uncompressed_size=71655096 bytes)
+[2025-04-05T06:45:22.337Z] [unzip] Processing entry: pubsub-emulator/lib/cloud-pubsub-emulator-0.8.14-all.jar
+[2025-04-05T06:45:22.337Z] [unzip] else mkdir: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/lib
+[2025-04-05T06:45:22.338Z] [unzip] deflating: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/lib/cloud-pubsub-emulator-0.8.14-all.jar
+[2025-04-05T06:45:23.387Z] [unzip] Entry: pubsub-emulator/bin/ (compressed_size=2 bytes, uncompressed_size=0 bytes)
+[2025-04-05T06:45:23.387Z] [unzip] Processing entry: pubsub-emulator/bin/
+[2025-04-05T06:45:23.388Z] [unzip] mkdir: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/bin/
+[2025-04-05T06:45:23.389Z] [unzip] Entry: pubsub-emulator/bin/cloud-pubsub-emulator.bat (compressed_size=889 bytes, uncompressed_size=2276 bytes)
+[2025-04-05T06:45:23.389Z] [unzip] Processing entry: pubsub-emulator/bin/cloud-pubsub-emulator.bat
+[2025-04-05T06:45:23.389Z] [unzip] else mkdir: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/bin
+[2025-04-05T06:45:23.391Z] [unzip] deflating: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/bin/cloud-pubsub-emulator.bat
+[2025-04-05T06:45:23.400Z] [unzip] Entry: pubsub-emulator/bin/cloud-pubsub-emulator (compressed_size=2284 bytes, uncompressed_size=5728 bytes)
+[2025-04-05T06:45:23.400Z] [unzip] Processing entry: pubsub-emulator/bin/cloud-pubsub-emulator
+[2025-04-05T06:45:23.400Z] [unzip] else mkdir: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/bin
+[2025-04-05T06:45:23.418Z] [unzip] deflating: /root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/bin/cloud-pubsub-emulator
+[2025-04-05T06:45:23.432Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
+[2025-04-05T06:45:23.432Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
+[2025-04-05T06:45:23.433Z] Starting Pub/Sub Emulator with command {"binary":"/root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/bin/cloud-pubsub-emulator","args":["--host=0.0.0.0","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true,"shell":true,"port":8085} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"/root/.cache/firebase/emulators/pubsub-emulator-0.8.14/pubsub-emulator/bin/cloud-pubsub-emulator\",\"args\":[\"--host=0.0.0.0\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true,\"shell\":true,\"port\":8085}"}}
+i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to pubsub-debug.log"}}
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"This is the Google Pub/Sub fake.\nImplementation may be incomplete or differ from the real system.\n"}}
+[2025-04-05T06:45:23.636Z] Apr 05, 2025 6:45:23 AM com.google.cloud.pubsub.testing.v1.Main main
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"Apr 05, 2025 6:45:23 AM com.google.cloud.pubsub.testing.v1.Main main\nINFO: IAM integration is disabled. IAM policy methods and ACL checks are not supported\n"}}
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"SLF4J: Failed to load class \"org.slf4j.impl.StaticLoggerBinder\".\n"}}
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"SLF4J: Defaulting to no-operation (NOP) logger implementation\nSLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.\n"}}
+[2025-04-05T06:45:24.429Z] Apr 05, 2025 6:45:24 AM com.google.cloud.pubsub.testing.v1.Main main
+ {"metadata":{"emulator":{"name":"pubsub"},"message":"Apr 05, 2025 6:45:24 AM com.google.cloud.pubsub.testing.v1.Main main\nINFO: Server started, listening on 8085\n"}}
