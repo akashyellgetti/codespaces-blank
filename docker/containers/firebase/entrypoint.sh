@@ -12,17 +12,15 @@ PUBSUB_LOG="$LOG_DIR/pubsub.log"
 ENTRYPOINT_LOG="$LOG_DIR/entrypoint.log"
 
 # Start logging
-exec > >(tee -a $ENTRYPOINT_LOG) 2>&1
+# exec > >(tee -a $ENTRYPOINT_LOG) 2>&1
 
-echo "Starting Firebase Emulator with Separate Logs..."
-
-
+# echo "Starting Firebase Emulator with Separate Logs..."
 
 # Start Firebase Emulator and log each service separately
-firebase emulators:start --project "${FIREBASE_PROJECT_ID}" --only firestore,auth,storage,pubsub \
-  --import="$LOG_DIR" \
-  --export-on-exit \
-  --debug 2>&1 | tee $DEBUG_LOG | awk '
-  /firestore/ {print > "'$FIRESTORE_LOG'"}
-  /pubsub/ {print > "'$PUBSUB_LOG'"}
-'
+# firebase emulators:start --project "${FIREBASE_PROJECT_ID}" --debug --only firestore,auth,storage,pubsub \
+#   --import="$LOG_DIR" \
+#   --export-on-exit \
+#   --debug 2>&1 | tee $DEBUG_LOG | awk '
+#   /firestore/ {print > "'$FIRESTORE_LOG'"}
+#   /pubsub/ {print > "'$PUBSUB_LOG'"}
+firebase emulators:start --project "${FIREBASE_PROJECT_ID}"  --only firestore,auth,storage,pubsub

@@ -1,17 +1,17 @@
 # Stop all running containers
-docker stop $(docker ps -aq) && \
+docker stop $(docker ps -aq)
 
 # Remove all containers (stopped, running, or exited)
-docker rm $(docker ps -aq) && \
+docker rm $(docker ps -aq)
 
 # Forcefully remove all images
-docker rmi -f $(docker images -aq) && \
+docker rmi -f $(docker images -aq)
 
 # Remove all Docker volumes
-docker volume rm $(docker volume ls -q) && \
+docker volume rm $(docker volume ls -q)
 
 # Remove all Docker networks (except default networks)
-docker network rm $(docker network ls -q) && \
+docker network rm $(docker network ls -q)
 
 # Prune all unused Docker resources, including dangling images and build cache
 docker system prune -a --volumes
@@ -21,3 +21,4 @@ docker compose down --volumes --remove-orphans
 
 # Access the bash of the container
 docker exec -it CONTAINER_NAME_OR_ID sh
+docker exec -it firebase-emulator sh
