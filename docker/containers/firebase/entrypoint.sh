@@ -1,26 +1,14 @@
 #!/bin/bash
-
-set -e
-
-LOG_DIR="/app/logs"
-mkdir -p $LOG_DIR
-
-# Define log files
-DEBUG_LOG="$LOG_DIR/firebase-debug.log"
-FIRESTORE_LOG="$LOG_DIR/firestore.log"
-PUBSUB_LOG="$LOG_DIR/pubsub.log"
-ENTRYPOINT_LOG="$LOG_DIR/entrypoint.log"
-
-# Start logging
-# exec > >(tee -a $ENTRYPOINT_LOG) 2>&1
-
-# echo "Starting Firebase Emulator with Separate Logs..."
-
-# Start Firebase Emulator and log each service separately
-# firebase emulators:start --project "${FIREBASE_PROJECT_ID}" --debug --only firestore,auth,storage,pubsub \
-#   --import="$LOG_DIR" \
-#   --export-on-exit \
-#   --debug 2>&1 | tee $DEBUG_LOG | awk '
-#   /firestore/ {print > "'$FIRESTORE_LOG'"}
-#   /pubsub/ {print > "'$PUBSUB_LOG'"}
-firebase emulators:start --project "${FIREBASE_PROJECT_ID}"  --only firestore,auth,storage,pubsub
+ 
+ set -e
+ 
+ echo "Starting Firebase Emulator..."
+ 
+ # Override binding for Codespaces
+ if [ -n "$CODESPACES" ]; then
+   echo "Detected Codespaces environment. Forcing host to 0.0.0.0"
+   firebase emulators:start --project "${FIREBASE_PROJECT_ID}" --only firestore,auth,storage,pubsub
+ else
+   echo "Starting with default host binding..."
+   firebase emulators:start --project "${FIREBASE_PROJECT_ID}" --only firestore,auth,storage,pubsub
+ fi
